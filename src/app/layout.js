@@ -1,6 +1,10 @@
 import localFont from "next/font/local";
-import "./globals.css";
-
+import "../styles/globals.css";
+import { Inter, Manrope } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
+const manrope = Manrope({ subsets: ["latin"] });
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -20,8 +24,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={manrope.className}>
+        <Header />
         {children}
+        <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
